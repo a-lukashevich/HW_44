@@ -61,7 +61,7 @@ public class Chrome {
 	public static void main(String[] args) throws Exception {
 		Logger.getLogger("").setLevel(Level.OFF);
 		p.load(new FileInputStream("./input.properties"));
-		report = new FileWriter("./report_01.csv", false);
+		report = new FileWriter("./report_chrome.csv", false);
 		
 		String driverPath = "";
 		
@@ -83,123 +83,123 @@ public class Chrome {
 		
 		//HEADER
 		
-				System.out.println("#,Browser,Page,Field,isPresent,Value,Size,Location");
-				report.write("#,Browser,Page,Field,isPresent,Value, Size, Location"); 
-				report.write(ls);
-				
-				//01 :: First Name
-				report.write("01,Chrome,index.php,First Name," +
-						isElementPresent(By.id(p.getProperty("fname_id"))) + "," +
-						p.getProperty("fname_value") + "," +
-						getSize(By.id(p.getProperty("fname_id"))) + "," +
-						getLocation(By.id(p.getProperty("fname_id"))) + "\n");
-				System.out.println("01,Chrome,index.php,First Name," + 
-						isElementPresent(By.id(p.getProperty("fname_id"))) + "," + 
-						p.getProperty("fname_value") + "," +
-						getSize(By.id(p.getProperty("fname_id"))) + "," +
-						getLocation(By.id(p.getProperty("fname_id"))) + "\n");
-				
-				setValue(By.id(p.getProperty("fname_id")), "fname_value");
-				
-				//02 :: Last Name
-				report.write("02,Chrome,index.php,Last Name," +
-						isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
-						p.getProperty("lname_value") + "," +
-						getSize(By.id(p.getProperty("lname_id"))) + "," +
-						getLocation(By.id(p.getProperty("lname_id"))) + "\n");
-				System.out.println("02,Chrome,index.php,Last Name," + 
-						isElementPresent(By.id(p.getProperty("lname_id"))) + "," + 
-						p.getProperty("lname_value") + "," +
-						getSize(By.id(p.getProperty("lname_id"))) + "," +
-						getLocation(By.id(p.getProperty("lname_id"))) + "\n");
-				
-				setValue(By.id(p.getProperty("lname_id")), "lname_value");
-				
-				//03 :: Email
-				report.write("03,Chrome,index.php,Email," +
-						isElementPresent(By.id(p.getProperty("email_id"))) + "," +
-						p.getProperty("email_value") + "," +
-						getSize(By.id(p.getProperty("email_id"))) + "," +
-						getLocation(By.id(p.getProperty("email_id"))) + "\n");
-				System.out.println("03,Chrome,index.php,Email," + 
-						isElementPresent(By.id(p.getProperty("email_id"))) + "," + 
-						p.getProperty("email_value") + "," +
-						getSize(By.id(p.getProperty("email_id"))) + "," +
-						getLocation(By.id(p.getProperty("email_id"))) + "\n");
-				
-				setValue(By.id(p.getProperty("email_id")), "email_value");
-				
-				//04 :: Phone
-				report.write("04,Chrome,index.php,Phone," +
-						isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
-						p.getProperty("phone_value") + "," +
-						getSize(By.id(p.getProperty("phone_id"))) + "," +
-						getLocation(By.id(p.getProperty("phone_id"))) + "\n");
-				System.out.println("04,Chrome,index.php,Phone," + 
-						isElementPresent(By.id(p.getProperty("phone_id"))) + "," + 
-						p.getProperty("phone_value") + "," +
-						getSize(By.id(p.getProperty("phone_id"))) + "," +
-						getLocation(By.id(p.getProperty("phone_id"))) + "\n");
+		System.out.println("#,Browser,Page,Field,isPresent,Value,Size,Location");
+		report.write("#,Browser,Page,Field,isPresent,Value, Size, Location"); 
+		report.write(ls);
+		
+		//01 :: First Name
+		report.write("01,Chrome,index.php,First Name," +
+				isElementPresent(By.id(p.getProperty("fname_id"))) + "," +
+				p.getProperty("fname_value") + "," +
+				getSize(By.id(p.getProperty("fname_id"))) + "," +
+				getLocation(By.id(p.getProperty("fname_id"))) + "\n");
+		System.out.print("01,Chrome,index.php,First Name," + 
+				isElementPresent(By.id(p.getProperty("fname_id"))) + "," + 
+				p.getProperty("fname_value") + "," +
+				getSize(By.id(p.getProperty("fname_id"))) + "," +
+				getLocation(By.id(p.getProperty("fname_id"))) + "\n");
+		
+		setValue(By.id(p.getProperty("fname_id")), "fname_value");
+		
+		//02 :: Last Name
+		report.write("02,Chrome,index.php,Last Name," +
+				isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
+				p.getProperty("lname_value") + "," +
+				getSize(By.id(p.getProperty("lname_id"))) + "," +
+				getLocation(By.id(p.getProperty("lname_id"))) + "\n");
+		System.out.print("02,Chrome,index.php,Last Name," + 
+				isElementPresent(By.id(p.getProperty("lname_id"))) + "," + 
+				p.getProperty("lname_value") + "," +
+				getSize(By.id(p.getProperty("lname_id"))) + "," +
+				getLocation(By.id(p.getProperty("lname_id"))) + "\n");
+		
+		setValue(By.id(p.getProperty("lname_id")), "lname_value");
+		
+		//03 :: Email
+		report.write("03,Chrome,index.php,Email," +
+				isElementPresent(By.id(p.getProperty("email_id"))) + "," +
+				p.getProperty("email_value") + "," +
+				getSize(By.id(p.getProperty("email_id"))) + "," +
+				getLocation(By.id(p.getProperty("email_id"))) + "\n");
+		System.out.print("03,Chrome,index.php,Email," + 
+				isElementPresent(By.id(p.getProperty("email_id"))) + "," + 
+				p.getProperty("email_value") + "," +
+				getSize(By.id(p.getProperty("email_id"))) + "," +
+				getLocation(By.id(p.getProperty("email_id"))) + "\n");
+		
+		setValue(By.id(p.getProperty("email_id")), "email_value");
+		
+		//04 :: Phone
+		report.write("04,Chrome,index.php,Phone," +
+				isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
+				p.getProperty("phone_value") + "," +
+				getSize(By.id(p.getProperty("phone_id"))) + "," +
+				getLocation(By.id(p.getProperty("phone_id"))) + "\n");
+		System.out.print("04,Chrome,index.php,Phone," + 
+				isElementPresent(By.id(p.getProperty("phone_id"))) + "," + 
+				p.getProperty("phone_value") + "," +
+				getSize(By.id(p.getProperty("phone_id"))) + "," +
+				getLocation(By.id(p.getProperty("phone_id"))) + "\n");
 
-				setValue(By.id(p.getProperty("phone_id")), "phone_value");
-				
-				//SUBMIT
-				driver.findElement(By.id(p.getProperty("submit_id"))).submit();
-				
-				WebDriverWait wait = new WebDriverWait(driver, 15);
-				wait.until(ExpectedConditions.titleIs("Confirmation"));
-				
-				//05 :: First Name
-				report.write("05,Chrome,confirmation.php,First Name," +
-						isElementPresent(By.id(p.getProperty("fname_id"))) + "," +
-						p.getProperty("fname_value") + "," +
-						getSize(By.id(p.getProperty("fname_id"))) + "," +
-						getLocation(By.id(p.getProperty("fname_id"))) + "\n");
-				System.out.println("05,Chrome,confirmation.php,First Name," + 
-						isElementPresent(By.id(p.getProperty("fname_id"))) + "," + 
-						p.getProperty("fname_value") + "," +
-						getSize(By.id(p.getProperty("fname_id"))) + "," +
-						getLocation(By.id(p.getProperty("fname_id"))) + "\n");
-				
-				//06 :: Last Name
-				report.write("06,Chrome,confirmation.php,Last Name," +
-						isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
-						p.getProperty("lname_value") + "," +
-						getSize(By.id(p.getProperty("lname_id"))) + "," +
-						getLocation(By.id(p.getProperty("lname_id"))) + "\n");
-				System.out.println("06,Chrome,confirmation.php,Last Name," + 
-						isElementPresent(By.id(p.getProperty("lname_id"))) + "," + 
-						p.getProperty("lname_value") + "," +
-						getSize(By.id(p.getProperty("lname_id"))) + "," +
-						getLocation(By.id(p.getProperty("lname_id"))) + "\n");
-				
-				//07 :: Email
-				report.write("07,Chrome,confirmation.php,Email," +
-						isElementPresent(By.id(p.getProperty("email_id"))) + "," +
-						p.getProperty("email_value") + "," +
-						getSize(By.id(p.getProperty("email_id"))) + "," +
-						getLocation(By.id(p.getProperty("email_id"))) + "\n");
-				System.out.println("07,Chrome,confirmation.php,Email," + 
-						isElementPresent(By.id(p.getProperty("email_id"))) + "," + 
-						p.getProperty("email_value") + "," +
-						getSize(By.id(p.getProperty("email_id"))) + "," +
-						getLocation(By.id(p.getProperty("email_id"))) + "\n");
-				
-				//08 :: Phone 
-				report.write("08,Chrome,confirmation.php,Phone," +
-						isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
-						p.getProperty("phone_value") + "," +
-						getSize(By.id(p.getProperty("phone_id"))) + "," +
-						getLocation(By.id(p.getProperty("phone_id"))) + "\n");
-				System.out.println("08,Chrome,confirmation.php,Phone," + 
-						isElementPresent(By.id(p.getProperty("phone_id"))) + "," + 
-						p.getProperty("phone_value") + "," +
-						getSize(By.id(p.getProperty("phone_id"))) + "," +
-						getLocation(By.id(p.getProperty("phone_id"))) + "\n");
-				
-				report.flush();
-				report.close();
-				driver.quit();
+		setValue(By.id(p.getProperty("phone_id")), "phone_value");
+		
+		//SUBMIT
+		driver.findElement(By.id(p.getProperty("submit_id"))).submit();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.titleIs("Confirmation"));
+		
+		//05 :: First Name
+		report.write("05,Firefox,confirmation.php,First Name," +
+				isElementPresent(By.id(p.getProperty("fname_id"))) + "," +
+				getValue(By.id(p.getProperty("fname_id"))) + "," +
+				getSize(By.id(p.getProperty("fname_id"))) + "," +
+				getLocation(By.id(p.getProperty("fname_id"))) + "\n");
+		System.out.print("05,Firefox,confirmation.php,First Name," + 
+				isElementPresent(By.id(p.getProperty("fname_id"))) + "," + 
+				getValue(By.id(p.getProperty("fname_id"))) + "," +
+				getSize(By.id(p.getProperty("fname_id"))) + "," +
+				getLocation(By.id(p.getProperty("fname_id"))) + "\n");
+		
+		//06 :: Last Name
+		report.write("06,Firefox,confirmation.php,Last Name," +
+				isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
+				getValue(By.id(p.getProperty("lname_id"))) + "," +
+				getSize(By.id(p.getProperty("lname_id"))) + "," +
+				getLocation(By.id(p.getProperty("lname_id"))) + "\n");
+		System.out.print("06,Firefox,confirmation.php,Last Name," + 
+				isElementPresent(By.id(p.getProperty("lname_id"))) + "," + 
+				getValue(By.id(p.getProperty("lname_id"))) + "," +
+				getSize(By.id(p.getProperty("lname_id"))) + "," +
+				getLocation(By.id(p.getProperty("lname_id"))) + "\n");
+		
+		//07 :: Email
+		report.write("07,Firefox,confirmation.php,Email," +
+				isElementPresent(By.id(p.getProperty("email_id"))) + "," +
+				getValue(By.id(p.getProperty("email_id"))) + "," +
+				getSize(By.id(p.getProperty("email_id"))) + "," +
+				getLocation(By.id(p.getProperty("email_id"))) + "\n");
+		System.out.print("07,Firefox,confirmation.php,Email," + 
+				isElementPresent(By.id(p.getProperty("email_id"))) + "," + 
+				getValue(By.id(p.getProperty("email_id"))) + "," +
+				getSize(By.id(p.getProperty("email_id"))) + "," +
+				getLocation(By.id(p.getProperty("email_id"))) + "\n");
+		
+		//08 :: Phone 
+		report.write("08,Firefox,confirmation.php,Phone," +
+				isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
+				getValue(By.id(p.getProperty("phone_id"))) + "," +
+				getSize(By.id(p.getProperty("phone_id"))) + "," +
+				getLocation(By.id(p.getProperty("phone_id"))) + "\n");
+		System.out.print("08,Firefox,confirmation.php,Phone," + 
+				isElementPresent(By.id(p.getProperty("phone_id"))) + "," + 
+				getValue(By.id(p.getProperty("phone_id"))) + "," +
+				getSize(By.id(p.getProperty("phone_id"))) + "," +
+				getLocation(By.id(p.getProperty("phone_id"))) + "\n");
+		
+		report.flush();
+		report.close();
+		driver.quit();
 		
 
 	}

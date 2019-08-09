@@ -4,14 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.Writer;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 import com.gargoylesoftware.htmlunit.SilentCssErrorHandler;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
+import com.gargoylesoftware.htmlunit.html.*;
 import com.gargoylesoftware.htmlunit.javascript.SilentJavaScriptErrorListener;
 
 public class HtmlUnit {
@@ -42,7 +39,7 @@ public class HtmlUnit {
 	public static void main(String[] args) throws Exception {
 		Logger.getLogger("").setLevel(Level.OFF);
 		p.load(new FileInputStream("./input.properties"));
-		report = new FileWriter("./report_01.csv", false);
+		report = new FileWriter("./report_htmlunit.csv", false);
 		
 		driver = new WebClient();
 		driver.setCssErrorHandler(new SilentCssErrorHandler());
@@ -58,7 +55,7 @@ public class HtmlUnit {
 		report.write("01,HtmlUnit,index.php,First Name," + 
 				isElementPresentHtmlUnit(index_page, p.getProperty("fname_id")) + "," +
 				p.getProperty("fname_value") + "\n");
-		System.out.println("01,HtmlUnit,index.php,First Name," +
+		System.out.print("01,HtmlUnit,index.php,First Name," +
 				isElementPresentHtmlUnit(index_page, p.getProperty("fname_id")) + "," + 
 				p.getProperty("fname_value") + "\n");
 		setValueHtmlUnit(index_page, p.getProperty("fname_id"), p.getProperty("fname_value"));
@@ -67,7 +64,7 @@ public class HtmlUnit {
 		report.write("02,HtmlUnit,index.php,Last Name," + 
 				isElementPresentHtmlUnit(index_page, p.getProperty("lname_id")) + "," +
 				p.getProperty("lname_value") + "\n");
-		System.out.println("02,HtmlUnit,index.php,Last Name," +
+		System.out.print("02,HtmlUnit,index.php,Last Name," +
 				isElementPresentHtmlUnit(index_page, p.getProperty("lname_id")) + "," + 
 				p.getProperty("lname_value") + "\n");
 		setValueHtmlUnit(index_page, p.getProperty("lname_id"), p.getProperty("lname_value"));
@@ -76,7 +73,7 @@ public class HtmlUnit {
 		report.write("03,HtmlUnit,index.php,Email," + 
 				isElementPresentHtmlUnit(index_page, p.getProperty("email_id")) + "," +
 				p.getProperty("email_value") + "\n");
-		System.out.println("03,HtmlUnit,index.php,Email," +
+		System.out.print("03,HtmlUnit,index.php,Email," +
 				isElementPresentHtmlUnit(index_page, p.getProperty("email_id")) + "," + 
 				p.getProperty("email_value") + "\n");
 		setValueHtmlUnit(index_page, p.getProperty("email_id"), p.getProperty("email_value"));
@@ -85,7 +82,7 @@ public class HtmlUnit {
 		report.write("04,HtmlUnit,index.php,Phone," + 
 				isElementPresentHtmlUnit(index_page, p.getProperty("phone_id")) + "," +
 				p.getProperty("phone_value") + "\n");
-		System.out.println("04,HtmlUnit,index.php,Phone," +
+		System.out.print("04,HtmlUnit,index.php,Phone," +
 				isElementPresentHtmlUnit(index_page, p.getProperty("phone_id")) + "," + 
 				p.getProperty("phone_value") + "\n");
 		setValueHtmlUnit(index_page, p.getProperty("phone_id"), p.getProperty("phone_value"));
@@ -98,34 +95,34 @@ public class HtmlUnit {
 		// 05 :: First Name
 		report.write("05,HtmlUnit,confirmation.php,First Name," + 
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("fname_id")) + "," +
-				p.getProperty("fname_value") + "\n");
-		System.out.println("05,HtmlUnit,confirmation.php,First Name," +
+				getValueHtmlUnit(confirmation_page, p.getProperty("fname_id")) + "\n");
+		System.out.print("05,HtmlUnit,confirmation.php,First Name," +
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("fname_id")) + "," + 
-				p.getProperty("fname_value") + "\n");
+				getValueHtmlUnit(confirmation_page, p.getProperty("fname_id")) + "\n");
 		
 		// 06 :: Last Name
 		report.write("06,HtmlUnit,confirmation.php,Last Name," + 
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("lname_id")) + "," +
-				p.getProperty("lname_value") + "\n");
-		System.out.println("06,HtmlUnit,confirmation.php,Last Name," +
+				getValueHtmlUnit(confirmation_page, p.getProperty("lname_id")) + "\n");
+		System.out.print("06,HtmlUnit,confirmation.php,Last Name," +
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("lname_id")) + "," + 
-				p.getProperty("lname_value") + "\n");
+				getValueHtmlUnit(confirmation_page, p.getProperty("lname_id")) + "\n");
 		
 		// 07 :: Email
 		report.write("07,HtmlUnit,confirmation.php,Email," + 
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("email_id")) + "," +
-				p.getProperty("email_value") + "\n");
-		System.out.println("07,HtmlUnit,confirmation.php,Email," +
+				getValueHtmlUnit(confirmation_page, p.getProperty("email_id")) + "\n");
+		System.out.print("07,HtmlUnit,confirmation.php,Email," +
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("email_id")) + "," + 
-				p.getProperty("email_value") + "\n");
+				getValueHtmlUnit(confirmation_page, p.getProperty("email_id")) + "\n");
 		
 		// 08 :: Phone
 		report.write("08,HtmlUnit,confirmation.php,Phone," + 
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("phone_id")) + "," +
-				p.getProperty("phone_value") + "\n");
+				getValueHtmlUnit(confirmation_page, p.getProperty("phone_id")) + "\n");
 		System.out.println("08,HtmlUnit,confirmation.php,Phone," +
 				isElementPresentHtmlUnit(confirmation_page, p.getProperty("phone_id")) + "," + 
-				p.getProperty("phone_value") + "\n");
+				getValueHtmlUnit(confirmation_page, p.getProperty("phone_id")) + "\n");
 		
 		report.flush();
 		report.close();
