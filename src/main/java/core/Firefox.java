@@ -29,7 +29,7 @@ public class Firefox {
 	public static String getSize(By by) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if(!driver.findElements(by).isEmpty() && driver.findElement(by).isDisplayed())
-			return driver.findElement(by).getRect().getDimension().toString().replace(",", "x");
+			return driver.findElement(by).getRect().getDimension().toString().replace(", ", "x");
 		else
 			return "null";
 	}
@@ -37,7 +37,7 @@ public class Firefox {
 	public static String getLocation(By by) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if (!driver.findElements(by).isEmpty() && driver.findElement(by).isDisplayed())
-			return driver.findElement(by).getRect().getPoint().toString().replace(",", "x");
+			return driver.findElement(by).getRect().getPoint().toString().replace(", ", "x");
 		else
 			return "null";
 	}
