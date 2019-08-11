@@ -68,8 +68,7 @@ public class Safari_P1 {
 				if (driver.findElement(by).getText().trim().isEmpty())
 					return "null";
 				else
-					//return driver.findElement(by).getAttribute("innerText").replace(",", "").trim();
-					return driver.findElement(by).getText().replace(",", "").trim();
+					return driver.findElement(by).getAttribute("innerText").replace(",", "").trim();
 			}
 			
 		} 
